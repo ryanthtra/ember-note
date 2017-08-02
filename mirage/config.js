@@ -24,5 +24,8 @@ export default function() {
     http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
   */
 
+  this.get('/users', (schema, request) => {
+    return schema.users.findBy({name: request.queryParams.name})
+  });
   this.post('/users');
 }
